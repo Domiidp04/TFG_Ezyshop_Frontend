@@ -1,0 +1,9 @@
+
+:root{
+  color-scheme: light dark;
+}
+
+
+p{
+  background-color: light-dark(rgb(66, 66, 230), black);
+}
