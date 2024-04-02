@@ -1,0 +1,28 @@
+@import "primeicons/primeicons.css";
+@import "../../../assets/variables.scss";
+
+header {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .lista {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style-type: none;
+  }
+  .icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  nav .list{
+    display: flex;
+    gap: 15px;
+  }
+}
