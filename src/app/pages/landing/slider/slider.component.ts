@@ -29,6 +29,7 @@ export class SliderComponent {
       this.productService.getProducts().subscribe({
         next: data => {
           this.categories = data;
+          console.log(this.categories);
         },
         error: error => {
           console.error('Error:', error);

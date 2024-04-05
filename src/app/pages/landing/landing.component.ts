@@ -27,7 +27,6 @@ export class LandingComponent {
 
   ngOnInit(): void {
     this.getProducts();
-
   }
 
   getProducts(){

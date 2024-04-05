@@ -12,7 +12,7 @@ export class Product {
    public stock: number,
    public disabled: boolean | null | undefined,
    public category: Category,
-   public imageProduct: ImageProduct[] | null | undefined,
+   public imageProduct: ImageProduct[],
    public assessments: Assessment[] | null | undefined,
   ){ }
 }
