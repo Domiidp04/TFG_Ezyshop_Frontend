@@ -8,22 +8,18 @@ header {
   align-items: center;
   position: fixed;
   top: 0;
+  z-index: 100000;
   width: 100%;
   background-color: $color-fondo;
 
-  .lista {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    list-style-type: none;
-  }
   .icons {
     display: flex;
     gap: 15px;
   }
 
-  nav .list{
-    display: flex;
-    gap: 15px;
+  ::ng-deep .ul .p-menuitem-link {
+    margin-right: 15px;
   }
+
+
 }

@@ -1,12 +1,24 @@
 <header>
-  <app-logo></app-logo>
-  <nav class="list">
-      <p-menubar [model]="items" class="ul"></p-menubar>
+  <a href="/"><app-logo></app-logo></a>
+  <nav class="lista">
+    <p-menubar [model]="items" class="ul"></p-menubar>
   </nav>
 
   <div class="icons">
-    <i class="pi pi-search"></i>
-    <i class="pi pi-user"></i>
-    <i class="pi pi-shopping-cart"></i>
+    <i
+      class="pi pi-search"
+      [routerLink]="['/buscar']"
+      style="cursor: pointer"
+    ></i>
+    <i
+      class="pi pi-user"
+      [routerLink]="['/perfil']"
+      style="cursor: pointer"
+    ></i>
+    <i
+      class="pi pi-shopping-cart"
+      [routerLink]="['/carrito']"
+      style="cursor: pointer"
+    ></i>
   </div>
 </header>
