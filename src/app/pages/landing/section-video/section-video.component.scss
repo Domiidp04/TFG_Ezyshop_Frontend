@@ -1,5 +1,5 @@
 @import "../../../../assets/variables.scss";
-section{
+section {
   padding-top: $padding-top;
   height: 100vh;
 
@@ -9,12 +9,12 @@ section{
     height: 100%;
   }
   img {
-    object-fit: cover;  // Esto hará que la imagen cubra toda la sección sin distorsionarse
+    object-fit: cover; // Esto hará que la imagen cubra toda la sección sin distorsionarse
     width: 100%;
     height: 100%;
     position: absolute;
   }
-  .description{
+  .description {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -23,7 +23,7 @@ section{
     // text-align: center; //Centrar horizontal
     // align-content: center; //Centrar vertical
   }
-  a{
+  a {
     display: inline-block;
     text-align: center;
     padding: 5px;
@@ -33,8 +33,5 @@ section{
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
-}
-
-  a:hover{
   }
 }

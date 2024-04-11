@@ -12,13 +12,30 @@
     ></i>
     <i
       class="pi pi-user"
-      [routerLink]="['/perfil']"
+      (click)="op.toggle($event)"
       style="cursor: pointer"
     ></i>
     <i
       class="pi pi-shopping-cart"
-      [routerLink]="['/carrito']"
+      (click)="switchCarrito()"
       style="cursor: pointer"
     ></i>
   </div>
 </header>
+
+<!-- Panel de Usuario / Perfil -->
+<p-overlayPanel #op class="op">
+  <a href="/">Ver perfil</a>
+  <a href="/">Mis pedidos</a>
+  <a href="/">Cerrar sesión</a>
+</p-overlayPanel>
+
+<!-- Panel de Carrito -->
+<p-overlayPanel #op2 class="op2">
+  Carroooo
+</p-overlayPanel>
+
+<p-sidebar [(visible)]="isCarrito" position="right">
+  <h3>Right Sidebar</h3>
+</p-sidebar>
+
