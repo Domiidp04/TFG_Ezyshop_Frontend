@@ -1,0 +1,29 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #ccc;
+  bottom: 0;
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .footer-section {
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        margin-right: 10px;
+        color: #000;
+        text-decoration: none;
+      }
+
+      i {
+        font-size: 24px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

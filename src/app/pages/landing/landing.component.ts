@@ -4,6 +4,8 @@ import { ProductService } from "../../services/product.service";
 import { Product } from "../../model/product";
 import { SectionVideoComponent } from "./section-video/section-video.component";
 import { SliderComponent } from "./slider/slider.component";
+import { BentoComponent } from "./bento/bento.component";
+import { InformationComponent } from "./information/information.component";
 
 
 @Component({
@@ -12,7 +14,9 @@ import { SliderComponent } from "./slider/slider.component";
   imports: [
     HeaderComponent,
     SectionVideoComponent,
-    SliderComponent
+    SliderComponent,
+    BentoComponent,
+    InformationComponent
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'

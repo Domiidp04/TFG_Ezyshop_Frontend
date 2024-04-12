@@ -57,26 +57,70 @@ header {
 }
 
 ::ng-deep .p-sidebar {
-  height: calc(100vh - $padding-top - 1px);
+  height: calc(100vh - $padding-top);
   top: $padding-top;
   background-color: $color-fondo;
-  border-bottom-left-radius: .5rem;
-  border-top-left-radius: .5rem;
+  border: 1px solid;
+  border-right: none;
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
   background-blend-mode: color;
 
-    button {
-      align-items: end;
-      margin: 5px 2px;
-      background-color: $color-fondo;
-      color: $color-texto;
-      border: none;
-      align-items: end;
-      padding: 5px 10px;
-      cursor: pointer;
+  button {
+    align-items: end;
+    margin: 5px 2px;
+    background: none;
+    color: $color-texto;
+    border: none;
+    align-items: end;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    -webkit-transition: transform 0.2s ease;
+    -moz-transition: transform 0.2s ease;
+    -ms-transition: transform 0.2s ease;
+    -o-transition: transform 0.2s ease;
+    &:hover{
+      transform: scale(1.25);
+      -webkit-transform: scale(1.25);
+      -moz-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+      -o-transform: scale(1.25);
+}
+  }
+
+  .header{
+    h3 {
+      text-align: center;
     }
 
-    h3{
+  }
+
+  .checking {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    margin-bottom: 10px;
+    .checkout {
       display: flex;
-      align-items: center;
+      justify-content: space-between;
+      padding: 5px 10px;
+      font-size: medium;
+      font-weight: bolder;
     }
+
+    button {
+      display: flex;
+      justify-content: center;
+      width: 70%;
+      font-weight: bolder;
+      margin: 0 auto;
+      border: 1px solid;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+    }
+  }
 }

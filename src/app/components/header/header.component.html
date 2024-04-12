@@ -31,11 +31,22 @@
 </p-overlayPanel>
 
 <!-- Panel de Carrito -->
-<p-overlayPanel #op2 class="op2">
-  Carroooo
-</p-overlayPanel>
+<p-overlayPanel #op2 class="op2"> Carroooo </p-overlayPanel>
 
 <p-sidebar [(visible)]="isCarrito" position="right">
-  <h3>Right Sidebar</h3>
-</p-sidebar>
+  <div class="header">
+    <h3>Carrito</h3>
+  <hr />
+  </div>
+  <div class="products">
 
+  </div>
+  <div class="checking">
+    <hr />
+    <div class="checkout">
+      <p>Total:</p>
+      <p>110$</p>
+    </div>
+    <button>Comprar ahora</button>
+  </div>
+</p-sidebar>
