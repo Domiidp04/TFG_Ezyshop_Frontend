@@ -3,11 +3,12 @@ import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../model/product';
 import { CarouselModule } from 'primeng/carousel';
 import { Button, ButtonModule } from 'primeng/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [CarouselModule, ButtonModule],
+  imports: [CarouselModule, ButtonModule, RouterLink],
   templateUrl: './slider.component.html',
   styleUrl: './slider.component.scss'
 })
@@ -42,12 +43,12 @@ export class SliderComponent {
         {
             breakpoint: '1400px',
             numVisible: 3,
-            numScroll: 3
+            numScroll: 1
         },
         {
             breakpoint: '1220px',
             numVisible: 2,
-            numScroll: 2
+            numScroll: 1
         },
         {
             breakpoint: '1100px',

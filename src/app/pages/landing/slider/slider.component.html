@@ -4,37 +4,30 @@
     [numVisible]="3"
     [numScroll]="1"
     [circular]="true"
-    [autoplayInterval]=4000
+    [autoplayInterval]="4000"
     [responsiveOptions]="responsiveOptions"
   >
     <ng-template let-product pTemplate="item">
       <div class="product-item">
         <div class="product-item-content">
           <div class="mb-3">
-            <img
+            <a [routerLink]="['/product']" [queryParams]="{ title: product.title }">
+              <img
               [src]="product.imageProduct[0]?.imageUrl"
               [alt]="product.title"
               class="product-image"
             />
+            </a>
           </div>
           <div>
             <h4 class="mb-1">{{ product.title }}</h4>
-            <h6 class="mt-0 mb-3">{{ '$' + product.price }}</h6>
+            <h6 class="mt-0 mb-3">{{ "$" + product.price }}</h6>
             <div
               class="mt-5 flex align-items-center justify-content-center gap-2"
-            >
-              <p-button icon="pi pi-search" [rounded]="true" />
-              <p-button
-                icon="pi pi-star-fill"
-                [rounded]="true"
-                severity="secondary"
-              />
-            </div>
+            ></div>
           </div>
         </div>
       </div>
     </ng-template>
   </p-carousel>
 </div>
-
-/*Lo que quiero aqui es los 10 ultimos productos*/
