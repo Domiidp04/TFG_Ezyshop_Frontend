@@ -11,7 +11,7 @@
       <div class="product-item">
         <div class="product-item-content">
           <div class="mb-3">
-            <a [routerLink]="['/product']" [queryParams]="{ title: product.title }">
+            <a [routerLink]="['/product', product.id]">
               <img
               [src]="product.imageProduct[0]?.imageUrl"
               [alt]="product.title"

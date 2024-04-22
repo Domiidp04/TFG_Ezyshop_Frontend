@@ -17,10 +17,10 @@ export class ProductService {
     return this.http.get<Product[]>(this.apiUrl);
   }
 
-  getProduct(title: string): Observable<Product> {
-    const params = new HttpParams().set('title', title);
-    return this.http.get<Product>(`${this.apiUrl}/title`, { params });
-}
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+
 
 
 

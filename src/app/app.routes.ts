@@ -5,7 +5,7 @@ import { ProductComponent } from './pages/product/product.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
-  { path: 'product', component: ProductComponent },
+  { path: 'product/:id', component: ProductComponent },
   { path: '**', component: NotFoundComponent }
 
 

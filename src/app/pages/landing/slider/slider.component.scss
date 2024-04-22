@@ -16,4 +16,23 @@
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
   }
+
+  .p-ripple{
+    margin: 0px 60px;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 13px 20px;
+    &:hover {
+      background-color: #555;
+    }
+
+    svg{
+      width: 18px;
+      height: 18px;
+    }
+  }
+
 }

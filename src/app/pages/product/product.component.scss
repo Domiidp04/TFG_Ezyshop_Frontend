@@ -1,4 +1,9 @@
 @import "../../../assets/variables.scss";
-p {
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+.section {
   margin-top: $padding-top;
+
+  button{
+    margin: 100px;
+  }
 }

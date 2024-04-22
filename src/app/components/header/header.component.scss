@@ -57,6 +57,9 @@ header {
 }
 
 ::ng-deep .p-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: calc(100vh - $padding-top);
   top: $padding-top;
   background-color: $color-fondo;
@@ -89,6 +92,7 @@ header {
 }
   }
 
+
   .header{
     h3 {
       text-align: center;
@@ -96,11 +100,16 @@ header {
 
   }
 
+  .header, .checking {
+    flex-shrink: 0; // Esto evitará que estos elementos se reduzcan más allá de su altura mínima.
+  }
+
   .checking {
     bottom: 0;
-    position: absolute;
-    width: 100%;
-    margin-bottom: 10px;
+    background-color: $color-fondo;
+    position: fixed;
+    width: 300px;
+    padding-bottom: 10px;
     .checkout {
       display: flex;
       justify-content: space-between;
@@ -122,5 +131,9 @@ header {
       -ms-border-radius: 0.5rem;
       -o-border-radius: 0.5rem;
     }
+  }
+
+  .products{
+    padding-bottom: 100px;
   }
 }
