@@ -1,0 +1,25 @@
+@import "../../../assets/variables.scss";
+section {
+
+    padding-top: $padding-top;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2, h3, p {
+        color: $color-texto;
+    }
+
+    .boton {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: $color-fondo;
+        color: white;
+        text-decoration: none;
+
+        &--atras, &--inicio {
+            margin: 10px;
+        }
+    }
+}

@@ -1,11 +1,11 @@
 export const MENU_ITEMS =  [
   {
     label: 'Novedades',
-    url: '/novedades',
+    url: '/news',
   },
   {
     label: 'Categorias',
-    url: '/categorias'
+    url: '/categories'
   },
   {
     label: 'Editorial',

@@ -1,1 +1,18 @@
-<p>board-product works!</p>
+<section>
+  <h3>Titulo</h3>
+  <p>Description</p>
+  <!-- @if (product.discountPrice != null) { -->
+    <p><del>price</del></p>
+    <p>DiscountPrice</p>
+  <!-- } else {-->
+    <p>price</p>
+  <!-- } -->
+
+  <p>stock</p>
+  <label>
+    Cantidad
+    <input type="number" min="1">
+  </label>
+
+  <button>Anadir a la cesta</button>
+</section>

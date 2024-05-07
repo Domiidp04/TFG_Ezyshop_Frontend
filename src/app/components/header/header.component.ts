@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LogoComponent } from '../logo/logo.component';
 import { MenubarModule } from 'primeng/menubar';
-import { MenuItem, PrimeIcons } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { MENU_ITEMS } from '../../../assets/menu-items';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
 import { SidebarModule } from 'primeng/sidebar';
 
 @Component({

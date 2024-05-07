@@ -2,8 +2,20 @@
 @import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
 .section {
   margin-top: $padding-top;
+  display: flex;
+  align-items: center;
 
   button{
     margin: 100px;
+  }
+
+  .left{
+    display: flex;
+    justify-content: left;
+  }
+
+  .right{
+    display: flex;
+    justify-content: right;
   }
 }

@@ -6,11 +6,6 @@
 
   <div class="icons">
     <i
-      class="pi pi-search"
-      [routerLink]="['/buscar']"
-      style="cursor: pointer"
-    ></i>
-    <i
       class="pi pi-user"
       (click)="op.toggle($event)"
       style="cursor: pointer"
@@ -25,20 +20,23 @@
 
 <!-- Panel de Usuario / Perfil -->
 <p-overlayPanel #op class="op">
-  <a href="/">Ver perfil</a>
-  <a href="/">Mis pedidos</a>
-  <a href="/">Cerrar sesión</a>
+  <a [routerLink]="['/profile']">Ver perfil</a>
+  <a [routerLink]="['/my-orders']">Mis pedidos</a>
+  <a>Cerrar sesión</a>
 </p-overlayPanel>
 
 <!-- Panel de Carrito -->
-<p-overlayPanel #op2 class="op2"> Carroooo </p-overlayPanel>
+<p-overlayPanel #op2 class="op2"></p-overlayPanel>
 
 <p-sidebar [(visible)]="isCarrito" position="right">
   <div class="header">
     <h3>Carrito</h3>
     <hr />
   </div>
-  <div class="products"></div>
+  <div class="products">
+    <p>lor</p>
+
+  </div>
   <div class="checking">
     <hr />
     <div class="checkout">
