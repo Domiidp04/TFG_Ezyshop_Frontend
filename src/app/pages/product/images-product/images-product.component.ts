@@ -14,25 +14,15 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './images-product.component.html',
   styleUrl: './images-product.component.scss'
 })
-export class ImagesProductComponent {
-  images: any[] | undefined;
-  images2: any[] | undefined;
-  product: Product;
+export class ImagesProductComponent{
+  @Input() public images: any[] | undefined;
+  public images2: any[] | undefined;
+  public product: Product;
+  public id: number;
 
-  constructor(
-    private productService: ProductService,
-    private route: ActivatedRoute,
-  ) { }
+  constructor( ) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-
-    this.images = [
-      {img: 'https://primefaces.org/cdn/primeng/images/galleria/galleria3.jpg', img2: 'https://primefaces.org/cdn/primeng/images/galleria/galleria3s.jpg'},
-      {img: 'https://primefaces.org/cdn/primeng/images/galleria/galleria2.jpg', img2: 'https://primefaces.org/cdn/primeng/images/galleria/galleria2s.jpg'},
-      {img: 'https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg', img2: 'https://primefaces.org/cdn/primeng/images/galleria/galleria1s.jpg'},
-      {img: 'https://primefaces.org/cdn/primeng/images/galleria/galleria4.jpg', img2: 'https://primefaces.org/cdn/primeng/images/galleria/galleria4s.jpg'}
-     ]
   }
 
   position: any = 'left';

@@ -1,18 +1,17 @@
 <section>
-  <h3>Titulo</h3>
-  <p>Description</p>
-  <!-- @if (product.discountPrice != null) { -->
-    <p><del>price</del></p>
-    <p>DiscountPrice</p>
-  <!-- } else {-->
-    <p>price</p>
-  <!-- } -->
+  <h3>{{product?.title}}</h3>
+  <p>{{product?.description}}</p>
 
-  <p>stock</p>
-  <label>
-    Cantidad
-    <input type="number" min="1">
-  </label>
+  @if (product?.discountPrice != null) {
+    <p><del>{{product?.price}} $</del></p>
+    <p>{{product?.discountPrice}} $</p>
+   }
+   @else {
+    <p>{{product?.price}} $</p>
+   }
 
-  <button>Anadir a la cesta</button>
+  <p>Disponible: {{product?.stock}}</p>
+
+  <button (click)="anadirACesta()">Añadir a la cesta</button>
+
 </section>

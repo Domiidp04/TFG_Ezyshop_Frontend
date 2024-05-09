@@ -27,3 +27,11 @@ a {
 ul, ol {
   list-style: none;
 }
+
+section{
+  padding-top: $padding-top;
+}
+
+a{
+  cursor: pointer;
+}

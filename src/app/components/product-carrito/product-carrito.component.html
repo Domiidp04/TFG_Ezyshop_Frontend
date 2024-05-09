@@ -1,0 +1,13 @@
+<div class="producto">
+
+  <h3>{{product.title}}</h3>
+  @if (product?.discountPrice != null) {
+    <p><del>{{product?.price}} $</del></p>
+    <p>{{product?.discountPrice}} $</p>
+   }
+   @else {
+    <p>{{product?.price}} $</p>
+   }
+   <button (click)="eliminarProducto()">X</button>
+
+</div>
