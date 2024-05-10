@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/variables.scss";
 @import "primeicons/primeicons.css";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 :root{
   background-color: $color-fondo;
   color: $color-texto;
@@ -35,3 +38,11 @@ section{
 a{
   cursor: pointer;
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+

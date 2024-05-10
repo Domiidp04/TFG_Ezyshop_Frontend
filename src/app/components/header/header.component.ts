@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LogoComponent } from '../logo/logo.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
-import { MENU_ITEMS } from '../../../assets/menu-items';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { SidebarModule } from 'primeng/sidebar';
 import { CarritoService } from '../../services/carrito.service';
@@ -40,11 +39,9 @@ export class HeaderComponent implements OnInit {
     private orderService: OrderService,
     private paymentService: PaymentService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.items = MENU_ITEMS;
-
     this.carritoService.carritoActual.subscribe((carrito) => {
       this.carrito = carrito;
       this.total = this.priceTotal(carrito);
@@ -68,14 +65,22 @@ export class HeaderComponent implements OnInit {
   }
 
   private priceTotal(carrito: Product[]) {
-    return carrito.reduce((total, producto) => {
+    let total = carrito.reduce((total, producto) => {
       if (producto.discountPrice) {
         return total + producto.discountPrice;
       } else {
         return total + producto.price;
       }
     }, 0);
+
+    // Si hay al menos un producto en el carrito, añade 1.99 al total
+    if (carrito.length > 0) {
+      total += 1.99;
+    }
+
+    return total;
   }
+
 
   public cerrarSesion() {
     this.authService.logout();
