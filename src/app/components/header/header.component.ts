@@ -9,28 +9,43 @@ import { CarritoService } from '../../services/carrito.service';
 import { Product } from '../../model/product';
 import { ProductCarritoComponent } from '../product-carrito/product-carrito.component';
 import { AuthService } from '../../services/auth.service';
+import { OrderService } from '../../services/order.service';
+import { PaymentService } from '../../services/payment.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [LogoComponent, MenubarModule, OverlayPanelModule, SidebarModule, ProductCarritoComponent],
+  imports: [
+    LogoComponent,
+    MenubarModule,
+    OverlayPanelModule,
+    SidebarModule,
+    ProductCarritoComponent,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  items: MenuItem[] | undefined;
-  isCarrito: boolean = false;
-  isInicioSesion: boolean = false;
+  public items: MenuItem[] | undefined;
+  public isCarrito: boolean = false;
+  public isInicioSesion: boolean = false;
   public carrito: Product[] = [];
 
   public total: number = 0;
 
-  constructor(private carritoService: CarritoService, private authService: AuthService) { }
+  constructor(
+    private carritoService: CarritoService,
+    private authService: AuthService,
+    private orderService: OrderService,
+    private paymentService: PaymentService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.items = MENU_ITEMS;
 
-    this.carritoService.carritoActual.subscribe(carrito => {
+    this.carritoService.carritoActual.subscribe((carrito) => {
       this.carrito = carrito;
       this.total = this.priceTotal(carrito);
     });
@@ -56,8 +71,7 @@ export class HeaderComponent implements OnInit {
     return carrito.reduce((total, producto) => {
       if (producto.discountPrice) {
         return total + producto.discountPrice;
-      }
-      else {
+      } else {
         return total + producto.price;
       }
     }, 0);
@@ -67,5 +81,31 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
   }
 
+  saveProduct() {
+    const orderProducts = this.carrito.map((product) => {
+      return { productId: product.id };
+    });
 
+    const orderRequestDto = { orderProducts };
+
+    this.orderService.createOrderWithOrderProducts(orderRequestDto).subscribe(
+      (order) => {
+        console.log(order.id);
+        this.total = 0;
+        this.paymentService.makePayment(order.id).subscribe(
+          (response) => {
+            window.open(response, '_self');
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    this.carrito = [];
+    localStorage.removeItem('carrito');
+  }
 }

@@ -8,6 +8,7 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { authGuard } from './guardians/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -17,6 +18,8 @@ export const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'my-orders', component: OrdersComponent, canActivate:[authGuard] },
+  { path: 'pay/pay/success', component: PaymentComponent, canActivate:[authGuard] },
+  { path: 'pay/pay/cancel', component: LoginComponent, canActivate:[authGuard] },
   { path: '**', component: NotFoundComponent }
 
 
