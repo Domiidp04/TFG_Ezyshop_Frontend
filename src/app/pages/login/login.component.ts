@@ -3,6 +3,7 @@ import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit{
 
   public loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private http: HttpClient){ }
+  constructor(private authService: AuthService, private route: Router){ }
 
   ngOnInit(): void {
    this.initForm();
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit{
       }
     )
     this.loginForm.reset();
+    this.route.navigate(['/'])
   }
 
 }

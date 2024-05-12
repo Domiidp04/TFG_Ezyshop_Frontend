@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as jwt_decode from 'jwt-decode';
 
 
@@ -8,7 +8,7 @@ import * as jwt_decode from 'jwt-decode';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8081/ezyshop/api/users/'
+  private apiUrl = 'http://localhost:8081/ezyshop/api/users/name/'
   constructor(private http: HttpClient) { }
 
   getUserData() {
@@ -16,11 +16,17 @@ export class UserService {
     const decodedToken = jwt_decode.jwtDecode(token);
     console.log(decodedToken);
 
-    const userId = decodedToken.iat; // Asume que el ID del usuario está en la propiedad 'sub'
+    const userId = decodedToken.sub; // Asume que el ID del usuario está en la propiedad 'sub'
     console.log(userId);
 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
 
-    return this.http.get(`${this.apiUrl}${userId}`);
+    return this.http.get(`${this.apiUrl}${userId}`, httpOptions);
   }
+
 
 }

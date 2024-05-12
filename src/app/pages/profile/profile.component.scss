@@ -1,26 +1,31 @@
 @import "../../../assets/variables.scss";
 
 section {
+  display: flex;
+  padding-top: $padding-top;
+  width: 300px;
+  height: 91vh;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
 
-    padding-top: $padding-top;
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
+  h2,
+  h3,
+  p {
+    color: $color-texto;
+  }
 
-    h2, h3, p {
-        color: $color-texto;
+  .boton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: $color-fondo;
+    color: white;
+    text-decoration: none;
+
+    &--atras,
+    &--inicio {
+      margin: 10px;
     }
-
-    .boton {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: $color-fondo;
-        color: white;
-        text-decoration: none;
-
-        &--atras, &--inicio {
-            margin: 10px;
-        }
-    }
+  }
 }

@@ -1,5 +1,6 @@
 @import "../../../../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "primeicons/primeicons.css";
+@import "../../../../../src/styles.scss";
 
 :host ::ng-deep {
   .product-item {

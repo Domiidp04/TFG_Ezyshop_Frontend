@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PaymentService } from '../../services/payment.service';
 
 @Component({
   selector: 'app-payment',
@@ -10,13 +11,15 @@ import { Router } from '@angular/router';
 })
 export class PaymentComponent implements OnInit{
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private paymentService: PaymentService) { }
 
   ngOnInit(): void {
     const url = this.router.url;  // obtén la URL actual
 
     if (url.includes('pay/success')) {
-      this.router.navigate(['/my-orders']);  // redirige a 'mis pedidos'
+      this.paymentService.successPay().subscribe(() => {
+        this.router.navigate(['/my-orders']);  // redirige a 'mis pedidos'
+      });
     }
   }
 

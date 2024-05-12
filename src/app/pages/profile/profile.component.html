@@ -1,12 +1,30 @@
 <section class="text-gray-600 body-font">
   <div class="flex flex-col items-center text-center justify-center">
     <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
-      Phoebe Caulfield
+      {{user?.name}}
     </h2>
     <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
     <p class="text-base">
-      Raclette knausgaard hella meggs normcore williamsburg enamel pin sartorial
-      venmo tbh hot chicken gentrify portland.
+      <b>Nombre de usuario:</b> {{user?.username}}
     </p>
+    <p class="text-base">
+      <b>Correo:</b> {{user?.email}}
+    </p>
+    <p class="text-base">
+      <b>Apellidos:</b> {{user?.lastname}}
+    </p>
+    <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+    <p class="text-base">
+      <b>Direccion:</b> {{user?.street}}, {{user?.number}}.
+    </p>
+    <p class="text-base">
+      <b>Codigo Postal:</b> {{user?.zip}}
+    </p>
+    @if (user?.description != null) {
+      <p class="text-base">
+        <b>Descripcion:</b> {{user?.description}}
+      </p>
+
+    }
   </div>
 </section>
