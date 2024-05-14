@@ -1,9 +1,13 @@
 // @import "primeicons/primeicons.css";
-// @import "../../../assets/variables.scss";
+@import "../../../../assets/variables.scss";
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+section{
+  padding-top: 120px;
+}
 
 // .grid {
 //   display: grid;

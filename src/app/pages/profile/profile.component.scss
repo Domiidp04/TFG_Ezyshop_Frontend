@@ -1,5 +1,9 @@
 @import "../../../assets/variables.scss";
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 section {
   display: flex;
   padding-top: $padding-top;

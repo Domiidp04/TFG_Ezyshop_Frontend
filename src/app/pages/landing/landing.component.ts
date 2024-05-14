@@ -6,6 +6,7 @@ import { SectionVideoComponent } from "./section-video/section-video.component";
 import { SliderComponent } from "./slider/slider.component";
 import { BentoComponent } from "./bento/bento.component";
 import { InformationComponent } from "./information/information.component";
+import { MarcasComponent } from "./marcas/marcas.component";
 
 
 @Component({
@@ -16,7 +17,8 @@ import { InformationComponent } from "./information/information.component";
     SectionVideoComponent,
     SliderComponent,
     BentoComponent,
-    InformationComponent
+    InformationComponent,
+    MarcasComponent
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'

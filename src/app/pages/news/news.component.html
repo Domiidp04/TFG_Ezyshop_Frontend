@@ -1,1 +1,25 @@
-<p>news works!</p>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto grid grid-cols-3 gap-4">
+    <!-- Utilizamos un bucle para iterar sobre los productos -->
+    <!-- Abrimos el bucle -->
+    @for (product of products; track $index){
+      <div class="p-4">
+        <div class="grid grid-wrap lg:w-full md:w-full">
+          <a class="block relative h-48 rounded overflow-hidden">
+            <!-- La imagen del producto -->
+            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
+          </a>
+          <div class="mt-4">
+            <!-- La categoría del producto -->
+            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{product.category.title}}</h3>
+            <!-- El título del producto -->
+            <h2 class="text-gray-900 title-font text-lg font-medium">{{product.title}}</h2>
+            <!-- El precio del producto -->
+            <p class="mt-1">{{product.price}}</p>
+          </div>
+        </div>
+      </div>
+    <!-- Cerramos el bucle -->
+    }
+  </div>
+</section>
