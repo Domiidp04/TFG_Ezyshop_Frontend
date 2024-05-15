@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Product } from '../../model/product';
 import { ProductService } from '../../services/product.service';
 import { CarritoService } from '../../services/carrito.service';
@@ -7,7 +7,7 @@ import { CarritoService } from '../../services/carrito.service';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })

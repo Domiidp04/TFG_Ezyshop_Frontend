@@ -26,7 +26,6 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
-  public items: MenuItem[] | undefined;
   public isCarrito: boolean = false;
   public isInicioSesion: boolean = false;
   public carrito: Product[] = [];
@@ -45,22 +44,30 @@ export class HeaderComponent implements OnInit {
     this.carritoService.carritoActual.subscribe((carrito) => {
       this.carrito = carrito;
       this.total = this.priceTotal(carrito);
+      this.inicioSesion();
     });
 
-    this.inicioSesion();
+    this.authService.getInicioSesionStatus().subscribe((status) => {
+      this.isInicioSesion = status;
+    });
+
   }
 
   switchCarrito() {
     if (this.isCarrito) {
       this.isCarrito = false;
+      this.inicioSesion();
     } else {
       this.isCarrito = true;
+      this.inicioSesion();
     }
   }
 
   inicioSesion() {
-    if (localStorage.getItem('access_token')) {
+    if (localStorage.getItem('access_token') != undefined) {
       this.isInicioSesion = true;
+      console.log(localStorage.getItem('access_token'));
+
     }
   }
 

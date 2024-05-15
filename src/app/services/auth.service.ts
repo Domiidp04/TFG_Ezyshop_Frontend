@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private inicioSesionStatus = new BehaviorSubject<boolean>(this.loggedIn);
 
   constructor(private http: HttpClient) { }
 
@@ -17,8 +19,6 @@ export class AuthService {
   }))
 }
 
-
-
   logout() {
     localStorage.removeItem('access_token');
   }
@@ -26,4 +26,10 @@ export class AuthService {
   public get loggedIn(): boolean{
     return localStorage.getItem('access_token') !==  null;
   }
+
+  getInicioSesionStatus(): Observable<boolean> {
+    return this.inicioSesionStatus.asObservable();
+  }
+
+
 }
