@@ -10,11 +10,17 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './product-categories.component.html',
   styleUrl: './product-categories.component.scss'
 })
-export class ProductCategoriesComponent{
+export class ProductCategoriesComponent implements OnInit{
 
   @Input() public products: Product[];
 
   constructor(){ }
+
+  ngOnInit(): void {
+    console.log(this.products);
+  }
+
+
 
 
 }

@@ -9,11 +9,13 @@ import { OrdersComponent } from './pages/orders/orders.component';
 import { authGuard } from './guardians/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { MasVendidosComponent } from './pages/mas-vendidos/mas-vendidos.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'product/:id', component: ProductComponent },
+  { path: 'mas-vendidos', component: MasVendidosComponent },
   { path: 'profile', component: ProfileComponent, canActivate:[authGuard] },
   { path: 'news', component: NewsComponent },
   { path: 'categories', component: CategoriesComponent },
