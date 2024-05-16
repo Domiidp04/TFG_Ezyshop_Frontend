@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductCategoriesComponent } from '../../components/product-categories/product-categories.component';
+import { Component } from '@angular/core';
 import { Product } from '../../model/product';
 import { ProductService } from '../../services/product.service';
 import { RouterLink } from '@angular/router';
+import { ProductCategoriesComponent } from '../../components/product-categories/product-categories.component';
 
 @Component({
-  selector: 'app-mas-vendidos',
+  selector: 'app-raton-category',
   standalone: true,
   imports: [ProductCategoriesComponent, RouterLink],
-  templateUrl: './mas-vendidos.component.html',
-  styleUrl: './mas-vendidos.component.scss'
+  templateUrl: './raton-category.component.html',
+  styleUrl: './raton-category.component.scss'
 })
-export class MasVendidosComponent implements OnInit{
+export class RatonCategoryComponent {
 
   public products: Product[] = [];
 
@@ -22,7 +22,7 @@ export class MasVendidosComponent implements OnInit{
   }
 
   private loadProductsByTitle(){
-    this.productService.getProductsByTitle("ProductNew").subscribe(
+    this.productService.getProductsByTitle("Raton").subscribe(
       (products)=>{
         this.products = products;
         console.log(this.products);

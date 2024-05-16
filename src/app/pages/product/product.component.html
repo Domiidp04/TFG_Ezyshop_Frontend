@@ -11,12 +11,12 @@
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-24 mx-auto">
     <div class="lg:w-4/5 mx-auto flex flex-wrap">
-      @if (product?.imageProduct?.length > 0) {
+      @if (product?.imageProducts?.length > 0) {
       <a [routerLink]="['/product', product.id]">
         <img
           alt="ecommerce"
           class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-          [src]="image.imageUrl"
+          [src]="product?.imageProducts[0]?.imageUrl"
         />
       </a>
       }@else {

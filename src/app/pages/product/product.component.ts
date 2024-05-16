@@ -15,8 +15,6 @@ export class ProductComponent implements OnInit {
 
   public product: Product;
   public id: number;
-  public images: any | undefined;
-  public image: any
 
   constructor(
     private productService: ProductService,
@@ -34,15 +32,8 @@ export class ProductComponent implements OnInit {
   private getProduct(id: number): void {
     this.productService.getProduct(id).subscribe((product: Product) => {
       this.product = product;
-      this.getImages();
-      this.image = this.images[0];
-      console.log(this.image);
 
     });
-  }
-  private getImages(): void {
-    this.images = this.product.imageProduct;
-    console.log(this.images);
   }
 
   public anadirACesta() {
