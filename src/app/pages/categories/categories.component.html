@@ -1,1 +1,6 @@
-<p>categories works!</p>
+@for (category of categories; track $index) {
+ <ul>
+  <li> {{category.title}}</li>
+  <li>{{category.description}}</li>
+ </ul>
+}

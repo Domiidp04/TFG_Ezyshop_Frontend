@@ -39,4 +39,5 @@ export class ProductComponent implements OnInit {
   public anadirACesta() {
     this.carritoService.anadirProducto(this.product);
   }
+
 }

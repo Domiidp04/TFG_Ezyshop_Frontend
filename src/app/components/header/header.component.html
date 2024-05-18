@@ -45,6 +45,6 @@
       <p>{{ total }}$</p>
     </div>
     <p>Envio : 1.99 $</p>
-    <button (click)="saveProduct()" [disabled]="!isInicioSesion">Comprar ahora</button>
+    <button (click)="saveProduct()" [disabled]="!isInicioSesion || total<1.99">Comprar ahora</button>
   </div>
 </p-sidebar>

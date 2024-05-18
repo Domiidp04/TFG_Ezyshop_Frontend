@@ -13,20 +13,22 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   createOrderWithOrderProducts(orderRequestDto: any): Observable<any> {
-    // Obtén el token del localStorage
-    const token = localStorage.getItem('access_token');
+    const httpOptions = this.getHttpOptions();
+    return this.http.post<any>(this.apiUrl, orderRequestDto, httpOptions);
+  }
 
-    // Define las opciones de la petición HTTP, incluyendo los encabezados
-    const httpOptions = {
+  getOrdersByUser(){
+    const httpOptions = this.getHttpOptions();
+    return this.http.get<any>(this.apiUrl + '/user', httpOptions);
+  }
+
+  private getHttpOptions() {
+    const token = localStorage.getItem('access_token');
+    return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       })
     };
-
-    // Realiza la petición POST con las opciones definidas
-    return this.http.post<any>(this.apiUrl, orderRequestDto, httpOptions);
   }
-
-
 }

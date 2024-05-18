@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Product } from '../../model/product';
 import { ProductService } from '../../services/product.service';
+import { Category } from '../../model/category';
 
 @Component({
   selector: 'app-product-categories',
@@ -10,17 +11,9 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './product-categories.component.html',
   styleUrl: './product-categories.component.scss'
 })
-export class ProductCategoriesComponent implements OnInit{
+export class ProductCategoriesComponent{
 
   @Input() public products: Product[];
-
-  constructor(){ }
-
-  ngOnInit(): void {
-    console.log(this.products);
-  }
-
-
-
+  @Input() public categories: Category[];
 
 }

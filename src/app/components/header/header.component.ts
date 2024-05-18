@@ -49,7 +49,12 @@ export class HeaderComponent implements OnInit {
 
     this.authService.getInicioSesionStatus().subscribe((status) => {
       this.isInicioSesion = status;
-    });
+      if (!status) {
+          this.carrito = [];
+          localStorage.removeItem('carrito');
+          this.total = 0;
+      }
+  });
 
   }
 
@@ -119,5 +124,6 @@ export class HeaderComponent implements OnInit {
     );
     this.carrito = [];
     localStorage.removeItem('carrito');
+    this.total = 0;
   }
 }
