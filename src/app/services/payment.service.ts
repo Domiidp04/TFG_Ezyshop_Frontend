@@ -15,17 +15,7 @@ export class PaymentService {
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   makePayment(orderId: number): Observable<string> {
-    // Construye la URL completa
-    const token = localStorage.getItem('access_token');
-
-    // Define las opciones de la petición HTTP, incluyendo los encabezados
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }),
-      responseType: 'text' as 'json'
-    };
+    const httpOptions = this.getHttpOptions();
 
     const url = `${this.apiUrl}${orderId}`;
 
@@ -42,18 +32,20 @@ export class PaymentService {
     // Construye la URL para la solicitud GET
     const url = `${this.SUCCESS_URL}?paymentId=${paymentId}&PayerID=${payerId}&orderId=${orderId}`;
 
-    const token = localStorage.getItem('access_token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }),
-      responseType: 'text' as 'json'
-    };
+    const httpOptions = this.getHttpOptions();
 
     // Haz la solicitud GET al servidor
     return this.http.get(url,httpOptions);
   }
 
+  private getHttpOptions() {
+    const token = localStorage.getItem('access_token');
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+  }
 
 }

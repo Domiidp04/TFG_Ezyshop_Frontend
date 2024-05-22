@@ -8,18 +8,23 @@ import { Category } from '../model/category';
 export class CategoryService {
 
   private apiUrl = "http://localhost:8081/ezyshop/api/categories"
-  private token = localStorage.getItem('access_token');
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.token}`
-    })
-  };
+
 
   constructor(private http: HttpClient) { }
 
   getCategories(){
-    return this.http.get<Category[]>(this.apiUrl,this.httpOptions)
+    const httpOptions = this.getHttpOptions();
+    return this.http.get<Category[]>(this.apiUrl, httpOptions)
+  }
+
+  private getHttpOptions() {
+    const token = localStorage.getItem('access_token');
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
   }
 
 }

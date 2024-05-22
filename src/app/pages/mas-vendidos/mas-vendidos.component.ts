@@ -22,12 +22,9 @@ export class MasVendidosComponent implements OnInit{
   }
 
   private loadProductsByTitle(){
-    this.productService.getProductsByTitle("ProductNew").subscribe(
+    this.productService.getProductsShops().subscribe(
       (products)=>{
         this.products = products;
-        console.log(this.products);
-        console.log(products.map((image) => image.imageProducts));
-
       }
     );
 

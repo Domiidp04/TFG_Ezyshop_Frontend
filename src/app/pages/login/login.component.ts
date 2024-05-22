@@ -3,12 +3,12 @@ import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ ReactiveFormsModule],
+  imports: [ ReactiveFormsModule, RouterLink ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

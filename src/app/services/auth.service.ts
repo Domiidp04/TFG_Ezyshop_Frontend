@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { Login } from '../model/login';
 
 @Injectable({
   providedIn: 'root',
@@ -31,5 +32,9 @@ export class AuthService {
 
   getInicioSesionStatus(): Observable<boolean> {
     return this.inicioSesionStatus.asObservable();
+  }
+
+  register(register: Login){
+    return this.http.post<Login>('http://localhost:8081/ezyshop/api/auth/register', register);
   }
 }

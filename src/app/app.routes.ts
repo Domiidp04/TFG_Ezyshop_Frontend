@@ -15,11 +15,15 @@ import { PcCategoryComponent } from './pages/pc-category/pc-category.component';
 import { MonitorCategoryComponent } from './pages/monitor-category/monitor-category.component';
 import { CascosCategoryComponent } from './pages/cascos-category/cascos-category.component';
 import { RatonCategoryComponent } from './pages/raton-category/raton-category.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { CategoriesProductsComponent } from './pages/categories-products/categories-products.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'product/:id', component: ProductComponent },
+  { path: 'categories/:categoryId', component: CategoriesProductsComponent },
   { path: 'mas-vendidos', component: MasVendidosComponent },
   { path: 'portatil', component: PortatilCategoryComponent },
   { path: 'pc', component: PcCategoryComponent },

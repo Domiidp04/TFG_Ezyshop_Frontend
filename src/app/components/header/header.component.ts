@@ -71,8 +71,6 @@ export class HeaderComponent implements OnInit {
   inicioSesion() {
     if (localStorage.getItem('access_token') != undefined) {
       this.isInicioSesion = true;
-      console.log(localStorage.getItem('access_token'));
-
     }
   }
 
