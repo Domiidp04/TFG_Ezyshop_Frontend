@@ -14,9 +14,8 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http.post('http://localhost:8081/ezyshop/api/auth/login', {username, password}, { observe: 'response' }).pipe(tap(res => {
       const token = res.headers.get('Authorization');
-      console.log(token);  // Imprime el token
       localStorage.setItem('access_token', token);
-      this.inicioSesionStatus.next(true);  // Emitir evento de inicio de sesión
+      this.inicioSesionStatus.next(true);
     }))
   }
 

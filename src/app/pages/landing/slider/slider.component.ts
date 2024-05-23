@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../model/product';
 import { CarouselModule } from 'primeng/carousel';
@@ -17,26 +17,14 @@ export class SliderComponent {
   //Responsive Options PrimeNG
   responsiveOptions: any[] | undefined = [];
 
-  categories:Product[] = [];
+  @Input() products:Product[] = [];
 
   constructor(private productService: ProductService){ }
 
   ngOnInit() {
     this.responsiveOptionsGet();
-    this.getProducts();
     };
 
-    getProducts(){
-      this.productService.getProducts().subscribe({
-        next: data => {
-          this.categories = data;
-          console.log(this.categories);
-        },
-        error: error => {
-          console.error('Error:', error);
-        }
-      });
-    }
 
     responsiveOptionsGet(){
       this.responsiveOptions = [

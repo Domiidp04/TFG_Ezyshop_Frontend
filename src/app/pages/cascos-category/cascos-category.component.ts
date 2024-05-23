@@ -25,9 +25,6 @@ export class CascosCategoryComponent {
     this.productService.getProductsByTitle("Cascos").subscribe(
       (products)=>{
         this.products = products;
-        console.log(this.products);
-        console.log(products.map((image) => image.imageProducts));
-
       }
     );
 

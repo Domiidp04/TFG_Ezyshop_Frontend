@@ -25,9 +25,6 @@ export class PcCategoryComponent {
     this.productService.getProductsByTitle("pc").subscribe(
       (products)=>{
         this.products = products;
-        console.log(this.products);
-        console.log(products.map((image) => image.imageProducts));
-
       }
     );
 

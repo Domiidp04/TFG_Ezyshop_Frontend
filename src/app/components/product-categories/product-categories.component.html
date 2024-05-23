@@ -2,14 +2,14 @@
   <div class="container px-5 py-24 mx-auto grid grid-cols-3 gap-4">
     @for (product of products; track $index){
     <div class="p-4">
-      <div class="grid grid-wrap lg:w-full md:w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
+      <div class="left grid grid-wrap lg:w-full md:w-full" >
+        <a class="tamano block relative h-48 rounded overflow-hidden">
           <!-- La imagen del producto -->
           @if (product.imageProducts && product.imageProducts.length > 0) {
           <a [routerLink]="['/product', product.id]">
             <img
               alt="ecommerce"
-              class="object-cover object-center w-full h-full block"
+              class="object-cover object-center block"
               [src]="product?.imageProducts[0]?.imageUrl"
             />
           </a>

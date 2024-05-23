@@ -26,8 +26,6 @@ export class PortatilCategoryComponent {
       .getProductsByTitle('portatil')
       .subscribe((products) => {
         this.products = products;
-        console.log(this.products);
-        console.log(products.map((image) => image.imageProducts));
       });
   }
 

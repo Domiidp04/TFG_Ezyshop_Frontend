@@ -17,11 +17,13 @@ import { CascosCategoryComponent } from './pages/cascos-category/cascos-category
 import { RatonCategoryComponent } from './pages/raton-category/raton-category.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CategoriesProductsComponent } from './pages/categories-products/categories-products.component';
+import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
+import { authReverseGuard } from './guardians/authReverse.guard';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate:[authReverseGuard] },
+  { path: 'register', component: RegisterComponent, canActivate:[authReverseGuard] },
   { path: 'product/:id', component: ProductComponent },
   { path: 'categories/:categoryId', component: CategoriesProductsComponent },
   { path: 'mas-vendidos', component: MasVendidosComponent },
@@ -31,6 +33,7 @@ export const routes: Routes = [
   { path: 'cascos', component: CascosCategoryComponent },
   { path: 'raton', component: RatonCategoryComponent },
   { path: 'profile', component: ProfileComponent, canActivate:[authGuard] },
+  { path: 'profile/edit', component: EditProfileComponent, canActivate:[authGuard] },
   { path: 'news', component: NewsComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'my-orders', component: OrdersComponent, canActivate:[authGuard] },

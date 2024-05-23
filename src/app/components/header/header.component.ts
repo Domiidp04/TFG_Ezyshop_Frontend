@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
     private orderService: OrderService,
     private paymentService: PaymentService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.carritoService.carritoActual.subscribe((carrito) => {
@@ -50,12 +50,11 @@ export class HeaderComponent implements OnInit {
     this.authService.getInicioSesionStatus().subscribe((status) => {
       this.isInicioSesion = status;
       if (!status) {
-          this.carrito = [];
-          localStorage.removeItem('carrito');
-          this.total = 0;
+        this.carrito = [];
+        localStorage.removeItem('carrito');
+        this.total = 0;
       }
-  });
-
+    });
   }
 
   switchCarrito() {
@@ -91,7 +90,6 @@ export class HeaderComponent implements OnInit {
     return total;
   }
 
-
   public cerrarSesion() {
     this.authService.logout();
   }
@@ -105,14 +103,13 @@ export class HeaderComponent implements OnInit {
 
     this.orderService.createOrderWithOrderProducts(orderRequestDto).subscribe(
       (order) => {
-        console.log(order.id);
         this.total = 0;
         this.paymentService.makePayment(order.id).subscribe(
           (response) => {
             window.open(response, '_self');
           },
           (error) => {
-            console.error(error);
+            console.error('Error en la creación de la orden:', error);
           }
         );
       },

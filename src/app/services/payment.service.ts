@@ -15,13 +15,17 @@ export class PaymentService {
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   makePayment(orderId: number): Observable<string> {
-    const httpOptions = this.getHttpOptions();
+    const httpOptions = {
+        ...this.getHttpOptions(),
+        responseType: 'text' as 'json'
+    };
 
     const url = `${this.apiUrl}${orderId}`;
 
     // Realiza la petición POST
     return this.http.post<string>(url, {}, httpOptions);
-  }
+}
+
 
   successPay(): Observable<any> {
     // Obtén los parámetros de la URL

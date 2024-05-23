@@ -39,6 +39,11 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.apiUrl}/${categoryId}/categories`, httpOptions);
   }
 
+  getProductsDesc(){
+    const httpOptions = this.getHttpOptions();
+    return this.http.get<Product[]>(`${this.apiUrl}/news`,httpOptions);
+  }
+
   private getHttpOptions() {
     const token = localStorage.getItem('access_token');
     return {

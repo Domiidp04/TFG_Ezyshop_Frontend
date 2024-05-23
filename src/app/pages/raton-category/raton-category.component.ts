@@ -22,12 +22,9 @@ export class RatonCategoryComponent {
   }
 
   private loadProductsByTitle(){
-    this.productService.getProductsByTitle("Raton").subscribe(
+    this.productService.getProductsByTitle("Ratón").subscribe(
       (products)=>{
         this.products = products;
-        console.log(this.products);
-        console.log(products.map((image) => image.imageProducts));
-
       }
     );
 

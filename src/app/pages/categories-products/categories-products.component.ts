@@ -23,7 +23,6 @@ export class CategoriesProductsComponent implements OnInit {
 
   private loadProducts(): void{
     const categoryId = parseInt(this.route.snapshot.paramMap.get('categoryId'));
-    console.log(categoryId);
 
     this.productService.getProductsByCategoryId(categoryId).subscribe(
       (products: Product[]) => {

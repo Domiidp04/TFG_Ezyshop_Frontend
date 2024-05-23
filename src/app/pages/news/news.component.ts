@@ -22,10 +22,9 @@ export class NewsComponent implements OnInit{
   }
 
   private loadProducts(){
-    this.productService.getProducts().subscribe(
+    this.productService.getProductsDesc().subscribe(
       (rest) => {
         this.products = rest;
-        console.log(this.products)
       }
     )
   }
