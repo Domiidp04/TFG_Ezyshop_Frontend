@@ -1,0 +1,37 @@
+@import "../../../../assets/variables.scss";
+section {
+  padding-top: $padding-top;
+  height: 100vh;
+
+  .img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    object-fit: cover; // Esto hará que la imagen cubra toda la sección sin distorsionarse
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  .description {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: $color-texto;
+    padding: 200px 250px;
+    // text-align: center; //Centrar horizontal
+    // align-content: center; //Centrar vertical
+  }
+  a {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid $color-texto;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+  }
+}

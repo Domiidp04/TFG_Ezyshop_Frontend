@@ -1,0 +1,45 @@
+<section class="bg-gray-50 dark:bg-gray-900 p-3 pt-24">
+  <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+    <div
+      class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden"
+    >
+      <div class="overflow-x-auto">
+        <table
+          class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+        >
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+          >
+            <tr>
+              <th scope="col" class="px-4 py-3">Dirección</th>
+              <th scope="col" class="px-4 py-3">Fecha de pedido</th>
+              <th scope="col" class="px-4 py-3">Envio</th>
+              <th scope="col" class="px-4 py-3">Cantidad</th>
+              <th scope="col" class="px-4 py-3">Pagado</th>
+              <th scope="col" class="px-4 py-3">Ref</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (order of orders; track $index) {
+            <tr class="tr border-b dark:border-gray-700" [routerLink]="['/my-orders', order.id]">
+              <td class="px-4 py-3">
+                {{ order.user.street }}, N{{ order.user.number }} @if
+                (order.user.description) { .{{ order.user.description }}
+                }
+              </td>
+              <td class="px-4 py-3">
+                {{ order.orderDate | date : "dd/MM/yyyy" }}
+              </td>
+              <td class="px-4 py-3">{{ order.shippingAmount }} $</td>
+              <td class="px-4 py-3">{{ order.paymentAmount }} $</td>
+              <td class="px-4 py-3">{{ order.payment ? "Si" : "No" }}</td>
+              <td class="px-4 py-3">{{ order.id }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+

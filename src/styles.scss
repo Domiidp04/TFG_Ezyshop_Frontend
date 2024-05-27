@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./assets/variables.scss";
+@import "primeicons/primeicons.css";
+
+:root{
+  background-color: $color-fondo;
+  color: $color-texto;
+  font-family: $fuente-principal;
+}
+
+// Estilos globales
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+section{
+  padding-top: 90px;
+}
+
+a{
+  cursor: pointer;
+}
+
+footer {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+

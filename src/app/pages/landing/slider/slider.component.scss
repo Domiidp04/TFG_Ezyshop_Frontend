@@ -1,0 +1,53 @@
+@import "../../../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "primeicons/primeicons.css";
+@import "../../../../../src/styles.scss";
+
+:host ::ng-deep {
+  ul {
+    display: none;
+  }
+  .product-item {
+    padding-top: 120px;
+    display: flex;
+    height: 90%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .p-carousel-container {
+      height: auto;
+      align-items: center;
+    }
+    .product-item-content {
+      border: 1px solid var(--surface-d);
+      border-radius: 3px;
+      margin: 0.3rem;
+      text-align: center;
+      padding: 2rem 0;
+      display: flex;
+      height: 90%;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-image {
+      width: 50%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    img {
+      width: fit-content;
+      max-height: 16rem;
+    }
+  }
+
+  .p-ripple {
+    margin: 0px 60px;
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    padding: 13px 20px;
+  }
+}

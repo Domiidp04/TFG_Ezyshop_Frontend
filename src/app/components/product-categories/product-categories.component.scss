@@ -1,0 +1,20 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+  .tamano img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .left{
+    justify-content: center;
+  }
+
+}

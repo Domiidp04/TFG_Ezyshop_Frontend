@@ -1,0 +1,14 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+section{
+
+  padding-top: 120px;
+  padding-bottom: 50px;
+
+  img{
+    width: 420px;
+    height: 260px;
+  }
+
+}

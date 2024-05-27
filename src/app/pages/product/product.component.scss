@@ -1,0 +1,38 @@
+// @import "../../../assets/variables.scss";
+// @import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+// .section {
+//   margin-top: $padding-top;
+//   display: flex;
+//   align-items: center;
+
+//   button{
+//     margin: 100px;
+//   }
+
+//   .left{
+//     display: flex;
+//     justify-content: left;
+//   }
+
+//   .right{
+//     display: flex;
+//     justify-content: right;
+//   }
+// }
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 93vh;
+
+  img{
+    width: 400px;
+    height: 300px;
+    object-fit: contain;
+  }
+}

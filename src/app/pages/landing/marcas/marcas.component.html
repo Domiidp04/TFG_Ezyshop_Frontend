@@ -1,0 +1,8 @@
+<div class="brand-container">
+  @for (brand of brands; track $index) {
+    <div class="brand-item">
+      <img [src]="brand.logo" alt="{{ brand.name }}" />
+    </div>
+  }
+
+</div>
