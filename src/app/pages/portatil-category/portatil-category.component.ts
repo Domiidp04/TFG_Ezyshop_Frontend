@@ -23,7 +23,7 @@ export class PortatilCategoryComponent {
 
   private loadProductsByTitle() {
     this.productService
-      .getProductsByTitle('portatil')
+      .getProductsByTitle('portátil')
       .subscribe((products) => {
         this.products = products;
       });

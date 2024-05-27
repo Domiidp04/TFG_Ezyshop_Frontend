@@ -19,6 +19,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CategoriesProductsComponent } from './pages/categories-products/categories-products.component';
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 import { authReverseGuard } from './guardians/authReverse.guard';
+import { OrderDetailComponent } from './pages/orders/order-detail/order-detail.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -37,9 +38,9 @@ export const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'my-orders', component: OrdersComponent, canActivate:[authGuard] },
+  { path: 'my-orders/:id', component: OrderDetailComponent, canActivate:[authGuard] },
   { path: 'pay/pay/success', component: PaymentComponent, canActivate:[authGuard] },
   { path: 'pay/pay/cancel', component: LoginComponent, canActivate:[authGuard] },
-  { path: '**', component: NotFoundComponent }
-
+  { path: '**', component: NotFoundComponent },
 
 ];

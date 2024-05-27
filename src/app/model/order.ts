@@ -1,3 +1,4 @@
+import { OrderProduct } from "./orderProduct";
 import { User } from "./user";
 
 export class Order {
@@ -15,4 +16,5 @@ export class Order {
   public paymentId: string;
   public user: User;
   public orders: Order[]
+  public lineas:OrderProduct[]
 }

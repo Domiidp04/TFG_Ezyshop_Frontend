@@ -3,10 +3,5 @@
 @import 'tailwindcss/utilities';
 
 section{
-  padding-top: 93px;
-  height: calc(100vh - 68px);
-
-  .tr{
-    cursor: pointer;
-  }
+  aspect-ratio: 16/9;
 }

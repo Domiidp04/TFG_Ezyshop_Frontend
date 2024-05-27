@@ -10,7 +10,7 @@
     <ng-template let-product pTemplate="item">
       <div class="product-item">
         <div class="product-item-content">
-          <div class="mb-3">
+          <div class="mb-3 mt-2">
             <a [routerLink]="['/product', product.id]">
               <img
               [src]="product.imageProducts[0]?.imageUrl"
@@ -21,7 +21,7 @@
           </div>
           <div>
             <h4 class="mb-1">{{ product.title }}</h4>
-            <h6 class="mt-0 mb-3">{{ "$" + product.price }}</h6>
+            <h6 class="mt-0 mb-3">{{product.price }}$</h6>
             <div
               class="mt-5 flex align-items-center justify-content-center gap-2"
             ></div>

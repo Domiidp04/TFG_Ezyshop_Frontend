@@ -22,6 +22,11 @@ export class OrderService {
     return this.http.get<any>(this.apiUrl + '/user', httpOptions);
   }
 
+  getOrderDetail(orderId: number){
+    const httpOptions = this.getHttpOptions();
+    return this.http.get(this.apiUrl+ '/' + orderId, httpOptions)
+  }
+
   private getHttpOptions() {
     const token = localStorage.getItem('access_token');
     return {

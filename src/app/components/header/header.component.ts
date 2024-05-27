@@ -29,7 +29,11 @@ export class HeaderComponent implements OnInit {
   public isCarrito: boolean = false;
   public isInicioSesion: boolean = false;
   public carrito: Product[] = [];
+  public showDropdown = false;
 
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
   public total: number = 0;
 
   constructor(
