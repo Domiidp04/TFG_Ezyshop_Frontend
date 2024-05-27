@@ -20,6 +20,10 @@ import { CategoriesProductsComponent } from './pages/categories-products/categor
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 import { authReverseGuard } from './guardians/authReverse.guard';
 import { OrderDetailComponent } from './pages/orders/order-detail/order-detail.component';
+import { AdminLandingComponent } from './admin/components/landing/adminLanding.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AdminProductsComponent } from './admin/dashboard/pages/admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin/dashboard/pages/admin-users/admin-users.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -35,6 +39,13 @@ export const routes: Routes = [
   { path: 'raton', component: RatonCategoryComponent },
   { path: 'profile', component: ProfileComponent, canActivate:[authGuard] },
   { path: 'profile/edit', component: EditProfileComponent, canActivate:[authGuard] },
+  { path: 'dashboard', component: DashboardComponent,
+    children: [
+      { path: '', component: AdminLandingComponent },
+      { path: 'products', component: AdminProductsComponent },
+      { path: 'users', component: AdminUsersComponent },
+    ], data: { showHeaderFooter: false }
+  },
   { path: 'news', component: NewsComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'my-orders', component: OrdersComponent, canActivate:[authGuard] },
