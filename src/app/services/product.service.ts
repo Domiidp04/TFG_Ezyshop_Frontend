@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, firstValueFrom } from "rxjs";
 import { Product } from "../model/product";
 
 
@@ -13,9 +13,9 @@ export class ProductService {
 
   private apiUrl = 'http://localhost:8081/ezyshop/api/products';
 
-  getProducts(): Observable<Product[]> {
+  getProducts(): Promise<Product[]> {
     const httpOptions = this.getHttpOptions();
-    return this.http.get<Product[]>(this.apiUrl, httpOptions);
+    return firstValueFrom(this.http.get<Product[]>(this.apiUrl, httpOptions));
   }
 
   getProduct(id: number): Observable<Product> {
@@ -52,6 +52,11 @@ export class ProductService {
         'Authorization': `Bearer ${token}`
       })
     };
+  }
+
+  public updateProduct(id: number, product: any): Observable<any> {
+    const httpOptions = this.getHttpOptions();
+    return this.http.put(`${this.apiUrl}/${id}`, product, httpOptions);
   }
 
 }

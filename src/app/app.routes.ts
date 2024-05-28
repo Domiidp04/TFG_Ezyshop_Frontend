@@ -24,11 +24,19 @@ import { AdminLandingComponent } from './admin/components/landing/adminLanding.c
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AdminProductsComponent } from './admin/dashboard/pages/admin-products/admin-products.component';
 import { AdminUsersComponent } from './admin/dashboard/pages/admin-users/admin-users.component';
+import { AdminEditProductsComponent } from './admin/dashboard/pages/admin-edit-products/admin-edit-products.component';
+import { AdminCreateProductsComponent } from './admin/dashboard/pages/admin-create-products/admin-create-products.component';
+import { AdminEditUsersComponent } from './admin/dashboard/pages/admin-edit-users/admin-edit-users.component';
+import { AdminCreateUsersComponent } from './admin/dashboard/pages/admin-create-users/admin-create-users.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, canActivate:[authReverseGuard] },
-  { path: 'register', component: RegisterComponent, canActivate:[authReverseGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [authReverseGuard] },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [authReverseGuard],
+  },
   { path: 'product/:id', component: ProductComponent },
   { path: 'categories/:categoryId', component: CategoriesProductsComponent },
   { path: 'mas-vendidos', component: MasVendidosComponent },
@@ -37,21 +45,43 @@ export const routes: Routes = [
   { path: 'monitor', component: MonitorCategoryComponent },
   { path: 'cascos', component: CascosCategoryComponent },
   { path: 'raton', component: RatonCategoryComponent },
-  { path: 'profile', component: ProfileComponent, canActivate:[authGuard] },
-  { path: 'profile/edit', component: EditProfileComponent, canActivate:[authGuard] },
-  { path: 'dashboard', component: DashboardComponent,
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  {
+    path: 'profile/edit',
+    component: EditProfileComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
     children: [
       { path: '', component: AdminLandingComponent },
       { path: 'products', component: AdminProductsComponent },
+      { path: 'create', component: AdminCreateProductsComponent },
+      { path: 'products/:productId', component: AdminEditProductsComponent },
       { path: 'users', component: AdminUsersComponent },
-    ], data: { showHeaderFooter: false }
+      { path: 'create', component: AdminCreateUsersComponent },
+      { path: 'users/:userId', component: AdminEditUsersComponent },
+    ],
+    data: { showHeaderFooter: false },
   },
   { path: 'news', component: NewsComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'my-orders', component: OrdersComponent, canActivate:[authGuard] },
-  { path: 'my-orders/:id', component: OrderDetailComponent, canActivate:[authGuard] },
-  { path: 'pay/pay/success', component: PaymentComponent, canActivate:[authGuard] },
-  { path: 'pay/pay/cancel', component: LoginComponent, canActivate:[authGuard] },
+  { path: 'my-orders', component: OrdersComponent, canActivate: [authGuard] },
+  {
+    path: 'my-orders/:id',
+    component: OrderDetailComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'pay/pay/success',
+    component: PaymentComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'pay/pay/cancel',
+    component: LoginComponent,
+    canActivate: [authGuard],
+  },
   { path: '**', component: NotFoundComponent },
-
 ];

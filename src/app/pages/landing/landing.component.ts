@@ -25,25 +25,18 @@ import { MarcasComponent } from "./marcas/marcas.component";
 })
 export class LandingComponent {
 
-  products: Product[] = [];
+  public products: Product[];
 
 
   constructor(private productService:ProductService) { }
 
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getProducts();
   }
 
-  getProducts(){
-    this.productService.getProducts().subscribe({
-      next: data => {
-        this.products = data;
-      },
-      error: error => {
-        console.error('Error:', error);
-      }
-    });
+  async getProducts(): Promise<void>{
+    this.products = await this.productService.getProducts();
   }
 
 }
