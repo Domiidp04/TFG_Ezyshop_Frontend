@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import * as jwt_decode from 'jwt-decode';
 import { Observable } from 'rxjs/internal/Observable';
+import { firstValueFrom } from 'rxjs';
+import { User } from '../model/user';
 
 
 @Injectable({
@@ -27,9 +29,34 @@ export class UserService {
     return this.http.get(`${this.apiUrl}/name/${userId}`, httpOptions);
   }
 
+  getUsers(): Promise<User[]>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.get<User[]>(`${this.apiUrl}`, httpOptions))
+  }
+
+  getUserById(userId: number): Promise<User>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.get<User>(`${this.apiUrl}/${userId}`, httpOptions))
+  }
+
   updateUser(id: number, updatedUser: any): Observable<any> {
     const httpOptions = this.getHttpOptions();
     return this.http.put(`${this.apiUrl}/${id}`, updatedUser,httpOptions);
+  }
+
+  getUsersCount(): Promise<number>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.get<number>(`${this.apiUrl}/count`,httpOptions));
+  }
+
+  deleteUser(userId: number){
+    const httpOptions = this.getHttpOptions();
+    firstValueFrom(this.http.delete(`${this.apiUrl}/${userId}`, httpOptions));
+  }
+
+  createUser(user: User){
+    const httpOptions = this.getHttpOptions();
+    firstValueFrom(this.http.post(`${this.apiUrl}`, user ,httpOptions));
   }
 
   private getHttpOptions() {

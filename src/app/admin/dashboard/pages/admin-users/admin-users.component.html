@@ -1,1 +1,71 @@
-<p>admin-users works!</p>
+<div class="card">
+  <p-table
+    [value]="users"
+    [paginator]="true"
+    [rows]="5"
+    [first]="first"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Muestra de {first} a {last} de {totalRecords} entradas"
+    (onPage)="pageChange($event)"
+    [globalFilterFields]="['title', 'category.title', 'price', 'stock']"
+    [rowsPerPageOptions]="[10, 25, 50]"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        Listado de usuarios
+        <p-button icon="pi pi-cart-plus" [routerLink]="['/dashboard/users/create',]"/>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="username">Usuario <p-sortIcon field="username" /></th>
+        <th pSortableColumn="email">
+          Correo <p-sortIcon field="email" />
+        </th>
+        <th pSortableColumn="street">Direccion <p-sortIcon field="street" /></th>
+        <th pSortableColumn="zip">Codigo postal <p-sortIcon field="zip" /></th>
+        <th pSortableColumn="description">Mas datos <p-sortIcon field="description" /></th>
+        <th pSortableColumn="date">Fecha <p-sortIcon field="date" /></th>
+        <th pSortableColumn="locked">Bloqueado <p-sortIcon field="locked" /></th>
+        <th pSortableColumn="disabled">Desactivado <p-sortIcon field="disabled" /></th>
+        <th pSortableColumn="role">Rol <p-sortIcon field="role" /></th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.street }} N{{user.number}}</td>
+        <td>{{ user.zip }}</td>
+        <td>{{ user.description }}</td>
+        <td>{{ user.date | date:"dd/MM/yyyy" }}</td>
+        <td>
+          <p-tag
+            [value]="user.locked"
+            [severity]="getSeverityDisabled(user.locked)"
+          />
+        </td><td>
+          <p-tag
+            [value]="user.disabled"
+            [severity]="getSeverityDisabled(user.disabled)"
+          />
+        </td>
+
+        <td>{{ user.role }}</td>
+
+        <td>
+          <p-button icon="pi pi-trash" (onClick)="deleteUser(user.id)" />
+          <p-button icon="pi pi-pencil" [routerLink]="['/dashboard/users', user.id]" />
+
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        En total hay {{ users ? users.length : 0 }} Usuarios.
+      </div>
+    </ng-template>
+  </p-table>
+</div>

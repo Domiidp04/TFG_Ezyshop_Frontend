@@ -59,4 +59,9 @@ export class ProductService {
     return this.http.put(`${this.apiUrl}/${id}`, product, httpOptions);
   }
 
+  getStock(): Promise<number>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.get<number>(`${this.apiUrl}/stock`,httpOptions));
+  }
+
 }

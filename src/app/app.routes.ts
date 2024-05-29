@@ -57,10 +57,10 @@ export const routes: Routes = [
     children: [
       { path: '', component: AdminLandingComponent },
       { path: 'products', component: AdminProductsComponent },
-      { path: 'create', component: AdminCreateProductsComponent },
-      { path: 'products/:productId', component: AdminEditProductsComponent },
       { path: 'users', component: AdminUsersComponent },
-      { path: 'create', component: AdminCreateUsersComponent },
+      { path: 'products/create', component: AdminCreateProductsComponent },
+      { path: 'products/:productId', component: AdminEditProductsComponent },
+      { path: 'users/create', component: AdminCreateUsersComponent },
       { path: 'users/:userId', component: AdminEditUsersComponent },
     ],
     data: { showHeaderFooter: false },

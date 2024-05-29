@@ -35,7 +35,7 @@
         <td>{{ product.title }}</td>
         <td>
           <img
-            [src]="product.imageProducts[0].imageUrl"
+            [src]="product?.imageProducts[0]?.imageUrl"
             [alt]="product.name"
             width="100"
             class="shadow-4"
