@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Breve descripción del backend de tu proyecto.
+El frontend de TFG_EZYSHOP, construido con Angular, es la cara de nuestra tienda online. Proporciona una interfaz de usuario intuitiva y atractiva que hace que comprar en nuestra tienda sea un placer. Desde la visualización de productos hasta el pago, el frontend facilita a los usuarios la navegación por la tienda y la realización de compras con unos pocos clics. Es la puerta de entrada a una experiencia de compra online sin complicaciones.
 
 ## Requisitos previos
 
@@ -11,7 +11,7 @@ Breve descripción del backend de tu proyecto.
 
 ## Instalación
 
-1. Clona el repositorio del backend.
+1. Clona el repositorio del Frontend.
 ```bash
 git clone git@github.com:Domiidp04/TFG_Ezyshop_Frontend.git
 ```
@@ -20,7 +20,7 @@ git clone git@github.com:Domiidp04/TFG_Ezyshop_Frontend.git
 ```bash
 cd TFG_Ezyshop_Frontend
 ```
-3. Compila el proyecto con Maven.
+3. Instalamos todas las dependencias.
 ```bash
 npm install
 ```
