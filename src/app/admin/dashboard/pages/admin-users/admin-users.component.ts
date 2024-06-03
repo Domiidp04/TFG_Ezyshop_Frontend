@@ -12,6 +12,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { RouterLink } from '@angular/router';
 import { User } from '../../../../model/user';
 import { UserService } from '../../../../services/user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-users',

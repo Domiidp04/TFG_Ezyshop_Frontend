@@ -88,11 +88,8 @@ export class AdminProductsComponent {
     }
   }
 
-  public updateProduct(productId: number, product:Product) {
-    this.productService.updateProduct(productId, product).subscribe(
-      (response) => {
-        console.log(response);
-      }
-    );
+  public async deleteProduct(productId: number){
+    await this.productService.deleteProduct(productId);
+    this.getProducts();
   }
 }

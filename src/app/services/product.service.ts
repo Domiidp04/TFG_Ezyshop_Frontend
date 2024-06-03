@@ -59,9 +59,19 @@ export class ProductService {
     return this.http.put(`${this.apiUrl}/${id}`, product, httpOptions);
   }
 
+  public create(product: Product): Promise<Product>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.post<Product>(this.apiUrl, product, httpOptions));
+  }
+
   getStock(): Promise<number>{
     const httpOptions = this.getHttpOptions();
     return firstValueFrom(this.http.get<number>(`${this.apiUrl}/stock`,httpOptions));
+  }
+
+  deleteProduct(productId:number){
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.delete(`${this.apiUrl}/${productId}`,httpOptions));
   }
 
 }

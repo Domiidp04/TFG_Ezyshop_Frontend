@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
-import { User } from '../../../../model/user';
-import { AuthService } from '../../../../services/auth.service';
-import { UserService } from '../../../../services/user.service';
+import { User } from '../../../../../model/user';
+import { AuthService } from '../../../../../services/auth.service';
+import { UserService } from '../../../../../services/user.service';
 
 @Component({
   selector: 'app-admin-edit-users',

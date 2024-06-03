@@ -59,6 +59,11 @@ export class UserService {
     firstValueFrom(this.http.post(`${this.apiUrl}`, user ,httpOptions));
   }
 
+  getUserByUsername(username: string): Promise<any>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.get(`${this.apiUrl}/name/${username}`, httpOptions));
+  }
+
   private getHttpOptions() {
     const token = localStorage.getItem('access_token');
     return {

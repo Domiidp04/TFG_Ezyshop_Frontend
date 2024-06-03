@@ -53,14 +53,14 @@
             [severity]="getSeverity(product.stock)"
           />
         </td>
-        <td>
+        <td class="p-3">
           <p-tag
             [value]="product.disabled ? 'Inactivo' : 'Activo'"
             [severity]="getSeverityDisabled(product.disabled)"
           />
         </td>
         <td>
-          <p-button icon="pi pi-trash" />
+          <p-button icon="pi pi-trash" (onClick)="deleteProduct(product.id)" />
           <p-button icon="pi pi-pencil" [routerLink]="['/dashboard/products', product.id]" />
 
         </td>
@@ -73,3 +73,5 @@
     </ng-template>
   </p-table>
 </div>
+
+
