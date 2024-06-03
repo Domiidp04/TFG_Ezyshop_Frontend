@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { OrderDto } from '../model/orderDto';
+import { Order } from '../model/order';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,21 @@ export class OrderService {
   getOrderDetail(orderId: number){
     const httpOptions = this.getHttpOptions();
     return this.http.get(this.apiUrl+ '/' + orderId, httpOptions)
+  }
+
+  getMoney(): Promise<number>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.get<number>(this.apiUrl+ '/money', httpOptions));
+  }
+
+  getOrdersCount(): Promise<number>{
+    const httpOptions = this.getHttpOptions();
+    return firstValueFrom(this.http.get<number>(this.apiUrl+ '/count', httpOptions));
+  }
+
+  getOrders(){
+    const httpOptions = this.getHttpOptions();
+    return this.http.get<Order[]>(this.apiUrl, httpOptions);
   }
 
   private getHttpOptions() {

@@ -2,6 +2,7 @@
 @import "./assets/variables.scss";
 @import "primeicons/primeicons.css";
 
+
 :root{
   background-color: $color-fondo;
   color: $color-texto;
@@ -31,6 +32,7 @@ ul, ol {
 
 section{
   padding-top: 90px;
+  height: 100%;
 }
 
 a{

@@ -1,0 +1,29 @@
+<div class="grid grid-cols-4 gap-4 mb-4">
+  <div
+    class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800"
+  >
+    <app-orders class="w-full h-full" [orders]="orders"></app-orders>
+  </div>
+  <div
+    class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800"
+  >
+    <app-money class="w-full h-full" [money]="money"></app-money>
+  </div>
+  <div
+    class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800"
+  >
+    <app-users class="w-full h-full" [users]="users"></app-users>
+  </div>
+  <div
+    class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800"
+  >
+    <app-stock class="w-full h-full" [stock]="stock"></app-stock>
+  </div>
+</div>
+<div class="grid grid-cols-1 gap-4 mb-4">
+  <div
+    class="flex items-center justify-center rounded bg-gray-50 dark:bg-gray-800 h-96"
+  >
+    <app-chart-billing class="w-full h-full"></app-chart-billing>
+  </div>
+</div>

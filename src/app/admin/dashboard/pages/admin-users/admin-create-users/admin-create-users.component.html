@@ -1,0 +1,167 @@
+<section class="flex items-center justify-center">
+  <div
+    class="flex items-center justify-center w-2/4 h-full dark:bg-gray-800"
+  >
+    <div
+      class="bg-white dark:bg-gray-900 shadow-md rounded-lg px-8 py-6 w-full items-center justify-center"
+    >
+      <h1 class="text-2xl font-bold text-center mb-4 dark:text-gray-200">
+        Ezyshop tienda online!
+      </h1>
+      <h3 class="text-xl font-semibold text-center mb-4 dark:text-gray-200 text-red-700">¡¡De momento el cambio de contraseña no se encuentra disponible!!</h3>
+      <form [formGroup]="createForm" class="flex flex-wrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="username"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Nombre de usuario</label
+        >
+        <input
+          type="text"
+          formControlName="username"
+          id="username"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza su nombre de usuario"
+          required
+        />
+      </div>
+
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="password"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Contraseña</label
+        >
+        <input
+          type="password"
+          formControlName="password"
+          id="password"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza su contraseña"
+          required
+        />
+      </div>
+
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="email"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Correo</label
+        >
+        <input
+          type="email"
+          formControlName="email"
+          id="email"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza su correo"
+          required
+        />
+      </div>
+
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="name"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Nombre</label
+        >
+        <input
+          type="text"
+          formControlName="name"
+          id="name"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza su nombre"
+          required
+        />
+      </div>
+
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="lastname"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Apellidos</label
+        >
+        <input
+          type="text"
+          formControlName="lastname"
+          id="lastname"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza sus apellidos"
+          required
+        />
+      </div>
+
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="zip"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Código postal</label
+        >
+        <input
+          type="number"
+          formControlName="zip"
+          id="zip"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza su código postal"
+          required
+        />
+      </div>
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="street"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Calle</label
+        >
+        <input
+          type="text"
+          formControlName="street"
+          id="street"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza su calle"
+          required
+        />
+      </div>
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="number"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Numero</label
+        >
+        <input
+          type="number"
+          formControlName="number"
+          id="number"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza su numero"
+          required
+        />
+      </div>
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          for="description"
+          class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >Mas detalles</label
+        >
+        <input
+          type="text"
+          formControlName="description"
+          id="description"
+          class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          placeholder="Introduza más detalles"
+          required
+        />
+
+      </div>
+
+
+      <button
+        type="submit"
+        (click)="createUser()"
+        class="w-full flex justify-center mt-8 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >
+        Crear usuario
+      </button>
+    </form>
+  </div>
+</div>
+
+</section>

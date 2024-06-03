@@ -1,0 +1,77 @@
+<div class="card">
+  <p-table
+    [value]="products"
+    [paginator]="true"
+    [rows]="5"
+    [first]="first"
+    [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Muestra de {first} a {last} de {totalRecords} entradas"
+    (onPage)="pageChange($event)"
+    [globalFilterFields]="['title', 'category.title', 'price', 'stock']"
+    [rowsPerPageOptions]="[10, 25, 50]"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        Listado de productos
+        <p-button icon="pi pi-cart-plus" [routerLink]="['/dashboard/products/create',]"/>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="title">Nombre <p-sortIcon field="name" /></th>
+        <th>Imagen</th>
+        <th pSortableColumn="price">Precio <p-sortIcon field="price" /></th>
+        <th pSortableColumn="category.title">
+          Categoria <p-sortIcon field="category" />
+        </th>
+        <th pSortableColumn="stock">Stock <p-sortIcon field="stock" /></th>
+        <th pSortableColumn="disabled">Estado <p-sortIcon field="status" /></th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.title }}</td>
+        <td>
+          <img
+            [src]="product?.imageProducts[0]?.imageUrl"
+            [alt]="product.name"
+            width="100"
+            class="shadow-4"
+          />
+        </td>
+        <td>
+          @if (product.discountPrice)
+          {{{ product.discountPrice | currency : "USD"
+          }}}@else{{{ product.price | currency : "USD" }}}
+        </td>
+        <td>{{ product.category.title }}</td>
+        <td>
+          <p-tag
+            [value]="product.stock"
+            [severity]="getSeverity(product.stock)"
+          />
+        </td>
+        <td class="p-3">
+          <p-tag
+            [value]="product.disabled ? 'Inactivo' : 'Activo'"
+            [severity]="getSeverityDisabled(product.disabled)"
+          />
+        </td>
+        <td>
+          <p-button icon="pi pi-trash" (onClick)="deleteProduct(product.id)" />
+          <p-button icon="pi pi-pencil" [routerLink]="['/dashboard/products', product.id]" />
+
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        En total hay {{ products ? products.length : 0 }} productos.
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+
+
