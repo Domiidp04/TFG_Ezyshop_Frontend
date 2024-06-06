@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit {
       total += 1.99;
     }
 
-    return total;
+    return parseFloat(total.toFixed(2));;
   }
 
   public cerrarSesion() {

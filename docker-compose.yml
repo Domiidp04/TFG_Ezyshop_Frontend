@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  db_postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: produccion
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - db_postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  ezyshop_backend:
+    container_name: ezyshop_backend
+    image: domidp04/tfg_ezyshop_backend:1.0.0
+    ports:
+      - 8081:8081
+    environment:
+      DATABASE_URL: jdbc:postgresql://db_postgres:5432/produccion
+      DATABASE_USERNAME: admin
+      DATABASE_PASSWORD: admin
+    depends_on:
+      - db_postgres
+    restart: always
+
+  ezyshop_frontend:
+    container_name: ezyshop_frontend
+    image: domidp04/tfg_ezyshop_frontend:1.0.0
+    ports:
+      - 4200:4200
+    depends_on:
+      - ezyshop_backend
+    restart: always
+
+volumes:
+  db_postgres-data:
