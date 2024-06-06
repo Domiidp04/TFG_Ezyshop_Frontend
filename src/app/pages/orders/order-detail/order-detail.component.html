@@ -21,8 +21,8 @@
           <dd
             class="mt-1 text-base font-normal text-gray-500 dark:text-gray-400"
           >
-            {{ order.user.street }} N{{ order.user.number }}@if (
-            order.user.description) {. {{ order.user.description }}}
+            {{ order?.user.street }} N{{ order?.user.number }}@if (
+            order?.user.description) {. {{ order?.user.description }}}
           </dd>
         </dl>
       </div>
@@ -35,7 +35,7 @@
             class="w-full text-left font-medium text-gray-900 dark:text-white md:table-fixed"
           >
             <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
-              @for (linea of order.lineas; track $index) {
+              @for (linea of order?.lineas; track $index) {
               <tr>
                 <td class="whitespace-nowrap py-4 md:w-[384px]">
                   <div class="flex items-center gap-4">
@@ -91,7 +91,7 @@
               <dl class="flex items-center justify-between gap-4">
                 <dt class="text-gray-500 dark:text-gray-400">Ahorrado</dt>
                 <dd class="text-base font-medium text-green-500">
-                  -$@if (order.savedAmount) {{{order.savedAmount}}}@else{0}
+                  -$@if (order?.savedAmount) {{{order?.savedAmount}}}@else{0}
                 </dd>
               </dl>
 
@@ -110,12 +110,12 @@
                 Total
               </dt>
               <dd class="text-lg font-bold text-gray-900 dark:text-white">
-                ${{ order.totalAmount }}
+                ${{ order?.totalAmount }}
               </dd>
             </dl>
           </div>
           <div class="gap-4 sm:flex sm:items-center">
-            @if (order.payment == false || order.payment == null) {
+            @if (order?.payment == false || order?.payment == null) {
             <button
               type="button"
               class="w-full rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700"
