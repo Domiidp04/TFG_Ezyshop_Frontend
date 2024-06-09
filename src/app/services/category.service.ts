@@ -7,7 +7,7 @@ import { Category } from '../model/category';
 })
 export class CategoryService {
 
-  private apiUrl = "http://localhost:8081/ezyshop/api/categories"
+  private apiUrl = "https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/categories"
 
 
   constructor(private http: HttpClient) { }

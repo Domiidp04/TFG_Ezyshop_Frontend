@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class ImageProductService {
 
-  public apiUrl: string = 'http://localhost:8081/ezyshop/api/imageProducts';
+  public apiUrl: string = 'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/imageProducts';
 
   constructor(private http: HttpClient) { }
 
