@@ -8,8 +8,8 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class PaymentService {
 
-  public apiUrl: string = 'http://localhost:8081/ezyshop/api/payment/'
-  private SUCCESS_URL = 'http://localhost:8081/ezyshop/api/pay/success';
+  public apiUrl: string = 'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/payment/'
+  private SUCCESS_URL = 'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/pay/success';
 
 
   constructor(private http: HttpClient, private route: ActivatedRoute) { }

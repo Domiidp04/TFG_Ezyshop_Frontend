@@ -9,7 +9,7 @@ import { Order } from '../model/order';
 })
 export class OrderService {
 
-  private apiUrl = 'http://localhost:8081/ezyshop/api/orders';
+  private apiUrl = 'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/orders';
 
   constructor(private http: HttpClient) { }
 

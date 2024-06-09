@@ -16,7 +16,7 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http
       .post(
-        'http://localhost:8081/ezyshop/api/auth/login',
+        'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/auth/login',
         { username, password },
         { observe: 'response' }
       )
@@ -56,7 +56,7 @@ export class AuthService {
 
   register(register: Login) {
     return this.http.post<Login>(
-      'http://localhost:8081/ezyshop/api/auth/register',
+      'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/auth/register',
       register
     );
   }

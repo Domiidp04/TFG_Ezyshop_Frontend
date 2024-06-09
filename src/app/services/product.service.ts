@@ -11,7 +11,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:8081/ezyshop/api/products';
+  private apiUrl = 'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/products';
 
   getProducts(): Promise<Product[]> {
     const httpOptions = this.getHttpOptions();

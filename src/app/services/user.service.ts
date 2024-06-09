@@ -11,7 +11,7 @@ import { User } from '../model/user';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:8081/ezyshop/api/users'
+  private apiUrl = 'https://tfg-ezyshop-backend-sbido.onrender.com/ezyshop/api/users'
   constructor(private http: HttpClient) { }
 
   getUserData() {
